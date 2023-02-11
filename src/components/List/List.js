@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Block from "../Block/Block";
+
 import ListItem from "../ListItem/ListItem";
 import "./List.css";
 

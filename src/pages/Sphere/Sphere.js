@@ -2,10 +2,9 @@
 import "./Sphere.css";
 import { useNavigate } from "react-router-dom";
 import Block from "../../components/Block/Block";
-import { useState } from "react";
 
 const Sphere = (props) => {
-  const [dataProduct, setDataProduct] = useState([
+  const dataProduct =[
     {
         id: 1,
       title: "Продукты",
@@ -30,7 +29,7 @@ const Sphere = (props) => {
           { id: 6, title: "Цех 85", squarefrom: 100, squareto: 150 },
         ],
       },
-  ]);
+  ];
   const navigate = useNavigate();
   return (
     <div className="container">

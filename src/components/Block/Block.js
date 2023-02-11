@@ -14,9 +14,11 @@ class Block extends Component {
   }
 
   alphabetSort = (items) => {
+   
     return items.sort((prev, next) => {
-      if (prev.title < next.title) return -1;
-      if (prev.title < next.title) return 1;
+        var textA = prev.title.toUpperCase();
+        var textB =next.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
   };
 
@@ -31,8 +33,8 @@ class Block extends Component {
 
   filterPost = (items, filter) => {
     if (filter[0]) {
-      if (this.isNumeric(filter[1]) & (filter[1].length != 0)) {
-        if (this.isNumeric(filter[2]) & (filter[2].length != 0)) {
+      if (this.isNumeric(filter[1]) & (filter[1].length !== 0)) {
+        if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
             if (!filter[3]) {
                 return this.squareToSort(
                     this.squareFromSort(this.alphabetSort(items), filter[1]),
@@ -49,9 +51,9 @@ class Block extends Component {
       }
       this.alphabetSort(items);
     }
-    if (this.isNumeric(filter[1]) & (filter[1].length != 0)) {
+    if (this.isNumeric(filter[1]) & (filter[1].length !== 0)) {
       console.log("filter 2");
-      if (this.isNumeric(filter[2]) & (filter[2].length != 0)) {
+      if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
         console.log("filter 3");
         if (!filter[3]) {
           return this.squareToSort(
@@ -67,7 +69,7 @@ class Block extends Component {
 
       return this.squareFromSort(items, filter[1]);
     }
-    if (this.isNumeric(filter[2]) & (filter[2].length != 0)) {
+    if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
       if (!filter[3]) {
         return this.squareToSort(
           this.squareFromSort(items, filter[1]),
