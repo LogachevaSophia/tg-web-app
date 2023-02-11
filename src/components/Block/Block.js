@@ -14,11 +14,10 @@ class Block extends Component {
   }
 
   alphabetSort = (items) => {
-   
     return items.sort((prev, next) => {
-        var textA = prev.title.toUpperCase();
-        var textB =next.title.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      var textA = prev.title.toUpperCase();
+      var textB = next.title.toUpperCase();
+      return textA < textB ? -1 : textA > textB ? 1 : 0;
     });
   };
 
@@ -35,33 +34,48 @@ class Block extends Component {
     if (filter[0]) {
       if (this.isNumeric(filter[1]) & (filter[1].length !== 0)) {
         if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
-            if (!filter[3]) {
-                return this.squareToSort(
-                    this.squareFromSort(this.alphabetSort(items), filter[1]),
-                    filter[2]
-                  ).slice(0, 3);
-              }
+          if (!filter[3]) {
+            return this.squareToSort(
+              this.squareFromSort(this.alphabetSort(items), filter[1]),
+              filter[2]
+            ).slice(0, 3);
+          }
           return this.squareToSort(
             this.squareFromSort(this.alphabetSort(items), filter[1]),
             filter[2]
           );
         }
+        if (!filter[3]) {
+          return this.squareFromSort(this.alphabetSort(items), filter[1]).slice(
+            0,
+            3
+          );
+        }
+        if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
+          if (!filter[3]) {
+            return this.squareToSort(this.alphabetSort(items), filter[2]).slice(0,3)
+          }
+          return this.squareToSort(this.alphabetSort(items), filter[2])
+        }
         if (!filter[3]){
           return this.squareFromSort(this.alphabetSort(items), filter[1]).slice(0,3);
         }
-
-
         return this.squareFromSort(this.alphabetSort(items), filter[1]);
       }
-      if (!filter[3]){
-        return this.alphabetSort(items).slice(0,3);
+      if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
+        if (!filter[3]) {
+          return this.squareToSort(this.alphabetSort(items), filter[2]).slice(0,3);
         }
+
+        return this.squareToSort(this.alphabetSort(items), filter[2]);
+      }
+      if (!filter[3]) {
+        return this.alphabetSort(items).slice(0, 3);
+      }
       return this.alphabetSort(items);
     }
     if (this.isNumeric(filter[1]) & (filter[1].length !== 0)) {
-      console.log("filter 2");
       if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
-        console.log("filter 3");
         if (!filter[3]) {
           return this.squareToSort(
             this.squareFromSort(items, filter[1]),
@@ -74,12 +88,13 @@ class Block extends Component {
         );
       }
       if (!filter[3]) {
-        return this.squareFromSort(items, filter[1]
-        ).slice(0, 3);}
+        return this.squareFromSort(items, filter[1]).slice(0, 3);
+      }
 
       return this.squareFromSort(items, filter[1]);
     }
     if (this.isNumeric(filter[2]) & (filter[2].length !== 0)) {
+      console.log('HHEEELLOOO')
       if (!filter[3]) {
         return this.squareToSort(
           this.squareFromSort(items, filter[1]),
@@ -90,10 +105,10 @@ class Block extends Component {
         this.squareFromSort(items, filter[1]),
         filter[2]
       );
-    };
-    if (!filter[3]){
-        return items.slice(0,3);
-        }
+    }
+    if (!filter[3]) {
+      return items.slice(0, 3);
+    }
     return items;
   };
 
@@ -108,7 +123,7 @@ class Block extends Component {
       companyFilter,
       squareFrom,
       squareTo,
-      all
+      all,
     ]);
     return (
       <div className="block">
@@ -155,20 +170,25 @@ class Block extends Component {
         </div>
         <List data={visiblaData} basket={false} />
         <div className="all">
-            {all? <button
-            onClick={() => {
-              console.log("click");
-              this.setState({ all: !all });
-            }}
-          >Свернуть
-          </button>: <button
-            onClick={() => {
-              console.log("click");
-              this.setState({ all: !all });
-            }}
-          >Раскрыть
-          </button>}
-          
+          {all ? (
+            <button
+              onClick={() => {
+                console.log("click");
+                this.setState({ all: !all });
+              }}
+            >
+              Свернуть
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                console.log("click");
+                this.setState({ all: !all });
+              }}
+            >
+              Раскрыть
+            </button>
+          )}
         </div>
       </div>
     );
