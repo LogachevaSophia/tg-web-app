@@ -3,7 +3,6 @@ import "./Sphere.css";
 import { useNavigate } from "react-router-dom";
 
 const Sphere = (props) => {
-  const titleProduct = "Продукты";
   const dataProduct = [
     {
       title: "Продукты",
