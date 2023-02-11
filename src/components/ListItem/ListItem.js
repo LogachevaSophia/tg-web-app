@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useBasketItems } from "../Provider/BasketProvider/BasketHooks";
 
 const ListItem = ({ id, title, squarefrom, squareto, basket }) => {
-  const { addItem, basketItems, removeItem } = useBasketItems();
+  const { addItem, removeItem } = useBasketItems();
   const [clicked, setClicked] = useState(false);
-  const style = {disabled:clicked};
+
 
   return (
     <tr key={id}>

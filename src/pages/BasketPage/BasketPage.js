@@ -5,8 +5,6 @@ import { useBasketItems } from "../../components/Provider/BasketProvider/BasketH
 const BasketPage = () => {
   const {basketItems} = useBasketItems();
     const navigate = useNavigate();
-    // <Basket title={elem.title} data={elem.data} key={elem.id} />
-    const data =[];
   return (
     <div className="container">
       <button className="back" onClick={() => navigate(-1)}>
