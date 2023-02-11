@@ -1,0 +1,10 @@
+.back {
+  background-color: rgba(255, 238, 0, 0.552);
+  color: black;
+  border: 2px solid #a8b82e;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 15px;
+  padding: 1%;
+  margin: 1%;
+  cursor: pointer;
+}

@@ -1,0 +1,60 @@
+.list {
+  margin-top: 5%;
+}
+
+.title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 45px;
+  text-align: center;
+}
+.buysphere {
+  background-color: rgba(255, 238, 0, 0.442);
+  color: black;
+  border: 2px solid #a8b82e;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 15px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+th button {
+  background-color: rgba(255, 238, 0, 0.552);
+  color: black;
+  border: 2px solid #a8b82e;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 15px;
+  padding: 10%;
+  margin: 1%;
+  width: 75px;
+  cursor: pointer;
+}
+.table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  flex-direction: column;
+}
+.all{
+    background-color: rgba(255, 238, 0, 0.442);
+    color: black;
+    border: 2px solid #a8b82e;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15px;
+    padding: 1%;
+    margin: 1%;
+
+
+}
+TABLE {
+  /* width: 300px; Ширина таблицы */
+  border-collapse: collapse; /* Убираем двойные линии между ячейками */
+  border: 2px solid rgba(127, 255, 212, 0.421);
+  margin-top: 0 auto;
+}
+td,
+th {
+  padding: 3px; /* Поля вокруг содержимого таблицы */
+  border: 1px solid maroon; /* Параметры рамки */
+  text-align: left; /* Выравнивание по левому краю */
+}
