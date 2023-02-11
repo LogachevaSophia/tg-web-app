@@ -21,12 +21,12 @@ const Sphere = (props) => {
         id: 2,
         title: "Пекарни",
         data: [
-          { id: 1, title: "Вольчек", squarefrom: 100, squareto: 150 },
-          { id: 2, title: "Цех 85", squarefrom: 100, squareto: 150 },
-          { id: 3, title: "Вольчек", squarefrom: 100, squareto: 150 },
-          { id: 4, title: "Цех 85", squarefrom: 100, squareto: 150 },
-          { id: 5, title: "Вольчек", squarefrom: 100, squareto: 150 },
-          { id: 6, title: "Цех 85", squarefrom: 100, squareto: 150 },
+          { id: 7, title: "Вольчек", squarefrom: 100, squareto: 150 },
+          { id: 8, title: "Цех 85", squarefrom: 100, squareto: 150 },
+          { id: 9, title: "Вольчек", squarefrom: 100, squareto: 150 },
+          { id: 10, title: "Цех 85", squarefrom: 100, squareto: 150 },
+          { id: 11, title: "Вольчек", squarefrom: 100, squareto: 150 },
+          { id: 12, title: "Цех 85", squarefrom: 100, squareto: 150 },
         ],
       },
   ];

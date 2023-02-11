@@ -12,7 +12,7 @@ const Main = () => {
       <div className="all-nets">
         <button>Все сети</button>
       </div>
-      <div className="basket">
+      <div className="basket" onClick={()=> navigate('/basket')}>
         <button>Корзина</button>
       </div>
       <div className="help">

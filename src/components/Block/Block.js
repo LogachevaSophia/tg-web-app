@@ -143,7 +143,7 @@ class Block extends Component {
             </div>
           </div>
         </div>
-        <List data={visiblaData} />
+        <List data={visiblaData} basket={false} />
         <div className="all">
             {all? <button
             onClick={() => {

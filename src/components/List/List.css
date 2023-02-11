@@ -51,6 +51,12 @@ th button {
   width: 75px;
   cursor: pointer;
 }
+
+th button:disabled{
+  background-color: rgba(255, 238, 0, 0.182);
+
+}
+
 .table {
   display: flex;
   align-items: center;

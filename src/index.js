@@ -3,11 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App/App";
 import { BrowserRouter } from "react-router-dom";
+import BasketProvider from "./components/Provider/BasketProvider/BasketHooks";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// export const BasketContext = createContext();
+
 root.render(
   <BrowserRouter>
-    <App />
+    <BasketProvider>
+      <App />
+    </BasketProvider>
   </BrowserRouter>
 );
 

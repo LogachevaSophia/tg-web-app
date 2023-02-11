@@ -1,31 +1,33 @@
-
 import ListItem from "../ListItem/ListItem";
 import "./List.css";
 
-const List = ({ data, ...props }) => {
-
-
-
-
-  return (
-    <div className="list">
-      <div className="table">
-        <table>
-          <tr>
-            <th>Компания</th>
-            <th>Площадь от</th>
-            <th>Площадь до</th>
-          </tr>
-          {data.map((elem,index) => {
-            return(
-              <ListItem key={index} title={elem.title} squarefrom={elem.squarefrom} squareto={elem.squareto}/>
-            )
-          })}
-        </table>
-      
+const List = ({ data, basket, ...props }) => {
+ 
+    return (
+      <div className="list">
+        <div className="table">
+          <table>
+            <tr>
+              <th>Компания</th>
+              <th>Площадь от</th>
+              <th>Площадь до</th>
+            </tr>
+            {data.map((elem, index) => {
+              return (
+                <ListItem
+                  key={elem.id}
+                  id={elem.id}
+                  title={elem.title}
+                  squarefrom={elem.squarefrom}
+                  squareto={elem.squareto}
+                  basket={basket}
+                />
+              );
+            })}
+          </table>
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default List;
