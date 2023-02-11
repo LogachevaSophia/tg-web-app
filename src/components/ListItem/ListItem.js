@@ -21,9 +21,6 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }) => {
                 squarefrom: squarefrom,
                 squareto: squareto,
               });
-             
-              
-              
             }}
           >
             Удалить
