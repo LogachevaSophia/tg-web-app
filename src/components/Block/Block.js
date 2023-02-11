@@ -49,7 +49,10 @@ class Block extends Component {
 
         return this.squareFromSort(this.alphabetSort(items), filter[1]);
       }
-      this.alphabetSort(items);
+      if (!filter[3]){
+        return this.alphabetSort(items).slice(0,3);
+        }
+      return this.alphabetSort(items);
     }
     if (this.isNumeric(filter[1]) & (filter[1].length !== 0)) {
       console.log("filter 2");
