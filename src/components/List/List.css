@@ -1,7 +1,30 @@
 .list {
   margin-top: 5%;
 }
-
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #a8b82e; */
+    padding:3%;
+}
+.titleFilter{
+    text-align: center;
+    word-wrap: break-word;
+    /* width: 120px; */
+    font-size: 15px;
+}
+.squreFromFilter{
+  display: table;
+}
+.squreFromFilter input{
+  display: table;
+    width: 90px;
+}
+.squreToFilter input{
+  display: table;
+    width: 90px;
+}
 .title {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 45px;
@@ -35,7 +58,7 @@ th button {
   margin-top: 2%;
   flex-direction: column;
 }
-.all{
+.all button{
     background-color: rgba(255, 238, 0, 0.442);
     color: black;
     border: 2px solid #a8b82e;
