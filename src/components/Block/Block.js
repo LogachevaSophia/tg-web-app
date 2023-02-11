@@ -46,6 +46,10 @@ class Block extends Component {
             filter[2]
           );
         }
+        if (!filter[3]){
+          return this.squareFromSort(this.alphabetSort(items), filter[1]).slice(0,3);
+        }
+
 
         return this.squareFromSort(this.alphabetSort(items), filter[1]);
       }
