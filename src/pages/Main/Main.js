@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className="container">
       <div className="sphere-category">
-        <button onClick={()=> navigate('/sphere')}>Сферы Деятельности</button>
+        <button onClick={()=> navigate('/sphere')}>Сферы деятельности</button>
         <button>Категории</button>
       </div>
       <div className="all-nets">
@@ -16,7 +16,7 @@ const Main = () => {
         <button>Корзина</button>
       </div>
       <div className="help">
-        <button>связаться с нами</button>
+        <button>Связаться с нами</button>
       </div>
     </div>
   );
