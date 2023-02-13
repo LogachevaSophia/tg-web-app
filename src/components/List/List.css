@@ -81,6 +81,7 @@ TABLE {
   border-collapse: collapse; /* Убираем двойные линии между ячейками */
   border: 2px solid rgba(127, 255, 212, 0.421);
   margin-top: 0 auto;
+  color: black;
 }
 td,
 th {
