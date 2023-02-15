@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class Server {
-    _apiBase = "http://195.93.173.91:3002";
+    _apiBase = "https://vps70590.xxvps.net:9050";
 
     getReSource = async (url) => {
         
