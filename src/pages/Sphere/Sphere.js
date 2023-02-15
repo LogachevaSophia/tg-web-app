@@ -8,14 +8,15 @@ import  Server from '../../service/Server';
 const Sphere = (props) => {
   const server = new Server();
   const [dataProduct, setDataProduct] = useState([]);
-  useEffect(()=>{
-    getDataProduct();
-},[setDataProduct])
-
   const getDataProduct = async () =>{
     const res = server.getSphere().then(onDataLoaded);
     return res;
   }
+  useEffect(()=>{
+    getDataProduct();
+},[getDataProduct])
+
+  
 
   const onDataLoaded = (res) =>{
     console.log("Данные загрузились");
