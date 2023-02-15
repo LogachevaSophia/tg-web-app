@@ -10,7 +10,7 @@ const Sphere = (props) => {
   const [dataProduct, setDataProduct] = useState([]);
   useEffect(()=>{
     getDataProduct();
-})
+},[setDataProduct])
 
   const getDataProduct = async () =>{
     const res = server.getSphere().then(onDataLoaded);
