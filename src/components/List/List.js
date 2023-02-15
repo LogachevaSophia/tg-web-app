@@ -15,8 +15,8 @@ const List = ({ data, basket, ...props }) => {
             {data.map((elem, index) => {
               return (
                 <ListItem
-                  key={elem.id}
-                  id={elem.id}
+                  key={index}
+                  id={index}
                   title={elem.title}
                   squarefrom={elem.squarefrom}
                   squareto={elem.squareto}
