@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Basket from "../../components/Basket/Basket";
 import { useBasketItems } from "../../components/Provider/BasketProvider/BasketHooks";
+import "./BasketPage.css";
 
 const BasketPage = () => {
   const { basketItems, price } = useBasketItems();
