@@ -1,26 +1,25 @@
-import "./Sphere.css";
+import "./Category.css";
 import { useNavigate } from "react-router-dom";
 import Block from "../../components/Block/Block";
 import { useEffect, useState } from "react";
 import Server from "../../service/Server";
 import { useSphereItems } from "../../components/Provider/SphereProvider/SphereHooks";
 
-const Sphere = (props) => {
-  // const server = new Server();
+const Category = (props) => {
+  const server = new Server();
+  const { sphereItems, setsphereItems, setSphere,categoryItems } = useSphereItems();
 
-  const { sphereItems, setsphereItems} = useSphereItems();
-
-  // const getDataProduct = async () => {
-    // const res = await server.getSphere();
-    // const item = res.data;
-    // const item = allItems.filter((elem)=> {return elem.tag='sphere'})
-    // const dop = item.map((elem) => ({
-    //   ...elem,
-    //   data: elem.data.map((item) => ({ ...item, clicked: false, tag: 'sphere' })),
-    // }));
-    // const data = [...sphereItems, ...dop];
-    // setsphereItems(data);
-  // };
+//   const getDataProduct = async () => {
+//     const res = await server.getCategory();
+//     const item = res.data;
+//     const dop = item.map((elem) => ({
+//       ...elem,
+//       data: elem.data.map((item) => ({ ...item, clicked: false, tag:'category' })),
+//     }));
+//     const data = [...sphereItems, ...dop];
+//     setsphereItems(data);
+    
+//   };
   useEffect(() => {
     // if (sphereItems == "") {
     //   getDataProduct();
@@ -59,7 +58,7 @@ const Sphere = (props) => {
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
-      {sphereItems.map((elem) => {
+      {categoryItems.map((elem) => {
         return (
           <Block
             title={elem.title}
@@ -72,4 +71,4 @@ const Sphere = (props) => {
     </div>
   );
 };
-export default Sphere;
+export default Category;

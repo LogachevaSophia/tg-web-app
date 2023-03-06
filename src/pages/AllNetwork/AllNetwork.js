@@ -1,26 +1,26 @@
-import "./Sphere.css";
+import "./AllNetwork.css";
 import { useNavigate } from "react-router-dom";
 import Block from "../../components/Block/Block";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Server from "../../service/Server";
 import { useSphereItems } from "../../components/Provider/SphereProvider/SphereHooks";
+import ListForAll from "../../components/ListForAll/ListForAll";
 
-const Sphere = (props) => {
-  // const server = new Server();
+const AllNetwork = (props) => {
+    const { allItems} = useSphereItems();
+  const {categoryItems, allNetworks } = useSphereItems();
 
-  const { sphereItems, setsphereItems} = useSphereItems();
-
-  // const getDataProduct = async () => {
-    // const res = await server.getSphere();
-    // const item = res.data;
-    // const item = allItems.filter((elem)=> {return elem.tag='sphere'})
-    // const dop = item.map((elem) => ({
-    //   ...elem,
-    //   data: elem.data.map((item) => ({ ...item, clicked: false, tag: 'sphere' })),
-    // }));
-    // const data = [...sphereItems, ...dop];
-    // setsphereItems(data);
-  // };
+//   const getDataProduct = async () => {
+//     const res = await server.getCategory();
+//     const item = res.data;
+//     const dop = item.map((elem) => ({
+//       ...elem,
+//       data: elem.data.map((item) => ({ ...item, clicked: false, tag:'category' })),
+//     }));
+//     const data = [...sphereItems, ...dop];
+//     setsphereItems(data);
+    
+//   };
   useEffect(() => {
     // if (sphereItems == "") {
     //   getDataProduct();
@@ -59,17 +59,14 @@ const Sphere = (props) => {
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
-      {sphereItems.map((elem) => {
-        return (
-          <Block
-            title={elem.title}
-            data={elem.data}
-            key={elem.id}
-            id={elem.id}
+     <ListForAll
+            title={"Все сети"}
+            data={allNetworks}
+            key={0}
+            id={0}
           />
-        );
-      })}
+
     </div>
   );
 };
-export default Sphere;
+export default AllNetwork;

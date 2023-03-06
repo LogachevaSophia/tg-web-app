@@ -11,7 +11,7 @@ class Server {
         // return await res.data;
         try{
             let res = await axios.get(url);
-            console.log(res.data);
+
             return res.data;
         }
         catch (err){
@@ -26,6 +26,20 @@ class Server {
         return await res;
     }
 
+    getCategory = async () =>{
+        const res = this.getReSource(`${this._apiBase}/category`);
+        return await res;
+    }
+
+    getAllItems = async () =>{
+        const res = this.getReSource(`${this._apiBase}/allItems`);
+        return await res;
+    }
+
+    getAllNetworks = async () =>{
+        const res = this.getReSource(`${this._apiBase}/allNetworks`);
+        return await res;
+    }
 
 }
 

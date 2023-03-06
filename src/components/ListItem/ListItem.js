@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useBasketItems } from "../Provider/BasketProvider/BasketHooks";
+import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
 
-const ListItem = ({ id, title, squarefrom, squareto, basket }) => {
+const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
   const { addItem, removeItem } = useBasketItems();
-  const [clicked, setClicked] = useState(false);
-
-
+  const { allItems } = useSphereItems();
+  // const [clickedstate, setClicked] = useState(false);
+  const clicked = allItems.find(x=> x.id===id).clicked;
+  const { changeItem, changeSphere } = useSphereItems();
   return (
     <tr key={id}>
       <th>{title}</th>
@@ -13,8 +15,19 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }) => {
       <th>{squareto}</th>
       <th>
         {basket ? (
-          <button   style={{backgroundColor:'red'}}
+          <button
+            style={{ backgroundColor: "red" }}
             onClick={() => {
+              changeItem({
+                id: id,
+                title: title,
+                squarefrom: squarefrom,
+                squareto: squareto,
+                clicked: true,
+              });
+              if (title.indexOf("Купить всю сферу") != -1) {
+                changeSphere(title);
+              }
               removeItem({
                 id: id,
                 title: title,
@@ -26,15 +39,26 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }) => {
             Удалить
           </button>
         ) : (
-          <button disabled={clicked}
+          <button
+            disabled={clicked}
             onClick={() => {
-              addItem({
-                id: id,
-                title: title,
-                squarefrom: squarefrom,
-                squareto: squareto,
-              });
-              setClicked(true);
+              // changeItem({
+              //   id: id,
+              //   title: title,
+              //   squarefrom: squarefrom,
+              //   squareto: squareto,
+              //   clicked: false,
+              // });
+
+              addItem([
+                {
+                  id: id,
+                  title: title,
+                  squarefrom: squarefrom,
+                  squareto: squareto,
+                  clicked: true,
+                },
+              ]);
             }}
           >
             Купить

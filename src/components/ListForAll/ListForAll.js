@@ -1,18 +1,18 @@
 import List from "../List/List";
 import { Component } from "react";
-import "./Block.css";
+import "./ListForAll.css";
 import { useBasketItems } from "../Provider/BasketProvider/BasketHooks";
 import { useState } from "react";
-import { useSphereItems } from "../../components/Provider/SphereProvider/SphereHooks";
+import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
 
-const Block = ({ title, data, id }, ...props) => {
+const ListForAll = ({ title, data, id }, ...props) => {
   const [companyFilter, setcompanyFilter] = useState(false);
   const [squareFrom, setsquareFrom] = useState("");
   const [squareTo, setsquareTo] = useState("");
   const [all, setAll] = useState(false);
   
 
-  const { changeBlock} = useBasketItems();
+  const { changeBlock, changeAll, calcPrice} = useBasketItems();
   const { allItems} = useSphereItems();
   
 
@@ -110,28 +110,31 @@ const Block = ({ title, data, id }, ...props) => {
     return /^\d+$/.test(value);
   };
 
-  const { addItem, removeItem } = useBasketItems();
+  const { addItem, removeItem, setBasketItems, basketItems } = useBasketItems();
   const visiblaData = filterPost(data, [
     companyFilter,
     squareFrom,
     squareTo,
     all,
   ]);
- if (data.length>1){
+  
+  if (data.length>1){
   return (
     <div className="block">
       <div className="title">
         {title}
         <p></p>
         <button
-         disabled={allItems.find(x=> x.id===(data.find(x=> x.title.indexOf("Купить всю")!=-1).id)).clicked}
           className="buysphere"
           onClick={() => {
-            let ind = data.findIndex((p) => p.title.indexOf("Купить всю") !=-1)
+            let ind = data.findIndex((p) => p.title.indexOf("Купить все") !=-1)
             console.log("Пытаюсь добавить в корзину")
-           
-            addItem([data[ind]]);
-            changeBlock(data, true)
+            console.log(data[ind]);
+            addItem([data[ind]],true)
+            //setBasketItems([data[ind]]);
+
+            //changeAll(true);
+            // changeBlock(data, true)
             // changeSphere('Купить всю сферу "'+title+'"');
             
           }}
@@ -190,26 +193,10 @@ const Block = ({ title, data, id }, ...props) => {
         ) : (
           ""
         )}
-        {/* {all ? (
-            <button
-              onClick={() => {
-                this.setState({ all: !all });
-              }}
-            >
-              Свернуть
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                this.setState({ all: !all });
-              }}
-            >
-              Раскрыть
-            </button>
-          )} */}
+       
       </div>
     </div>
   );}
 };
 
-export default Block;
+export default ListForAll;

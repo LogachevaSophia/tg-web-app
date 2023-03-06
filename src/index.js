@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./components/App/App";
 import { BrowserRouter } from "react-router-dom";
 import BasketProvider from "./components/Provider/BasketProvider/BasketHooks";
+import SphereProvider from "./components/Provider/SphereProvider/SphereHooks";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -11,9 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
+   <SphereProvider>
     <BasketProvider>
-      <App />
+     
+        <App />
+      
     </BasketProvider>
+    </SphereProvider>
   </BrowserRouter>
 );
 
