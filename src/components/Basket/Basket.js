@@ -8,7 +8,7 @@ const Basket = ({ data }) => {
   const {tg, queryId} = useTelegram();
   const postbuy = async () =>{
     console.log("Покупаем");
-    const data = {data: 'sophia', queryId,};
+    const data = {data: 'sophia', queryId:queryId};
     console.log(data);
     tg.sendData(JSON.stringify(data));
     axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{
