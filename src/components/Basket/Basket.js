@@ -8,12 +8,10 @@ const Basket = ({ data }) => {
   const {tg, queryId} = useTelegram();
   const postbuy = async () =>{
     console.log("Покупаем");
-    const data = {data: 'sophia', queryId:queryId};
+    
     console.log(data);
     tg.sendData(JSON.stringify(data));
-    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{
-      my_data: data
-  }})
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: 'sophia', queryId:queryId}})
     // fetch('https://vps70590.xxvps.net:9050/web-data', {
     //         method: 'POST',
     //         headers: {
