@@ -4,11 +4,18 @@ import { useTelegram } from "../hooks/Telegramhook";
 
 const Basket = ({ data }) => {
   const server = new Server();
-  const {tg} = useTelegram();
+  const {tg, queryid} = useTelegram();
   const postbuy = async () =>{
     console.log("Покупаем");
-    const data = {name: 'sophia'};
+    const data = {data: 'sophia', queryid: queryid};
     tg.sendData(JSON.stringify(data));
+    fetch('https://vps70590.xxvps.net:9050/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
     //const res = await server.basketToServer(data);
     
 
