@@ -10,13 +10,16 @@ const Basket = ({ data }) => {
     const data = {data: 'sophia', queryId,};
     console.log(data);
     tg.sendData(JSON.stringify(data));
-    fetch('https://vps70590.xxvps.net:9050/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{
+      my_data: data
+  }})
+    // fetch('https://vps70590.xxvps.net:9050/web-data', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
     //const res = await server.basketToServer(data);
     
 
