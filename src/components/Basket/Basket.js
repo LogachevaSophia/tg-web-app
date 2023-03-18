@@ -8,6 +8,7 @@ const Basket = ({ data }) => {
   const postbuy = async () =>{
     console.log("Покупаем");
     const data = {data: 'sophia', queryid: queryid};
+    console.log(data);
     tg.sendData(JSON.stringify(data));
     fetch('https://vps70590.xxvps.net:9050/web-data', {
             method: 'POST',
