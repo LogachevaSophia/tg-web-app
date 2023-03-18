@@ -124,7 +124,7 @@ const Block = ({ title, data, id }, ...props) => {
         {title}
         <p></p>
         <button
-         disabled={allItems.find(x=> x.id===(data.find(x=> x.title.indexOf("Купить всю")!=-1).id)).clicked}
+        //  disabled={allItems.find(x=> x.id===(data.find(x=> x.title.indexOf("Купить всю")!=-1).id)).clicked}
           className="buysphere"
           onClick={() => {
             let ind = data.findIndex((p) => p.title.indexOf("Купить всю") !=-1)

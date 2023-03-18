@@ -25,6 +25,7 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
                 squareto: squareto,
                 clicked: true,
               });
+              console.log(title);
               if (title.indexOf("Купить всю сферу") != -1) {
                 changeSphere(title);
               }

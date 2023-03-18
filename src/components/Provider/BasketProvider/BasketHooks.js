@@ -168,22 +168,25 @@ export default function BasketProvider({ children }) {
   };
 
   const removeItem = (item) => {
+    console.log(item);
     if (item.title.indexOf("Купить всю сферу") != -1) {
       /*мы удлаяем сферу*/
       let len = item.title.length;
       let c = item.title.substr(
-        "Купить всю сферу ".length + 1,
-        len - "Купить всю сферу ".length - 2
+        "Купить всю сферу ".length,
+        len - "Купить всю сферу ".length
       ); /*получили навание сферы*/
+      console.log(c);
       let objSphere = sphereItems.filter((elem) => elem.title === c)[0];
+      console.log(objSphere);
       changeBlock(objSphere.data);
     } else {
       if (item.title.indexOf("Купить всю категорию") != -1) {
         /*мы удлаяем категорию*/
         let len = item.title.length;
         let c = item.title.substr(
-          "Купить всю категорию ".length + 1,
-          len - "Купить всю категорию ".length - 2
+          "Купить всю категорию ".length,
+          len - "Купить всю категорию ".length
         ); /*получили навание сферы*/
         let objSphere = categoryItems.filter((elem) => elem.title === c)[0];
         changeBlock(objSphere.data);
