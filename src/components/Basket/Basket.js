@@ -11,7 +11,7 @@ const Basket = ({ data }) => {
     
     console.log(data);
     tg.sendData(JSON.stringify(data));
-    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: 'sophia', queryId:queryId}})
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: 'sophia', queryId:5}})
     // fetch('https://vps70590.xxvps.net:9050/web-data', {
     //         method: 'POST',
     //         headers: {
