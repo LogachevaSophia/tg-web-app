@@ -1,12 +1,16 @@
 import List from "../List/List";
 import Server from "../../service/Server";
+import { useTelegram } from "../hooks/Telegramhook";
 
 const Basket = ({ data }) => {
   const server = new Server();
-
+  const {tg} = useTelegram();
   const postbuy = async () =>{
     console.log("Покупаем");
-    const res = await server.basketToServer(data);
+    const data = {name: 'sophia'};
+    tg.sendData(JSON.stringify(data));
+    //const res = await server.basketToServer(data);
+    
 
   }  
 
