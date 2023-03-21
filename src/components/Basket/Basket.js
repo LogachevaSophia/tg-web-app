@@ -2,16 +2,22 @@ import List from "../List/List";
 import Server from "../../service/Server";
 import { useTelegram } from "../hooks/Telegramhook";
 import axios from "axios";
+import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
+
 
 const Basket = ({ data }) => {
   const server = new Server();
   const {tg, queryId} = useTelegram();
+  const { allItems} = useSphereItems();
   const postbuy = async () =>{
     console.log("Покупаем");
+    const datapost =  allItems.filter((elem) => {
+      return elem.clicked ===true;
+    });
     
-    console.log(data);
-    tg.sendData(JSON.stringify(data));
-    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: 'sophia', queryId:5}})
+    console.log(datapost);
+    tg.sendData(JSON.stringify(datapost));
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: datapost, queryId:queryId}})
     // fetch('https://vps70590.xxvps.net:9050/web-data', {
     //         method: 'POST',
     //         headers: {
