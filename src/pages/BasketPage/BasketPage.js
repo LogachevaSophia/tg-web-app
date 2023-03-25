@@ -12,7 +12,7 @@ const BasketPage = () => {
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
-      <Basket data={basketItems}></Basket>
+      <Basket data={basketItems} price={price}></Basket>
       {price}
     </div>
   );
