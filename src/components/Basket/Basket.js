@@ -17,7 +17,7 @@ const Basket = ({ data, price }) => {
     
     console.log(datapost);
     tg.sendData(JSON.stringify(datapost));
-    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: datapost, price: price, queryId:queryId, user: user.username}})
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: datapost, price: price, queryId:queryId, user: user?.username}})
     // fetch('https://vps70590.xxvps.net:9050/web-data', {
     //         method: 'POST',
     //         headers: {
