@@ -7,7 +7,7 @@ import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
 
 const Basket = ({ data, price }) => {
   const server = new Server();
-  const {tg, queryId, chat_id} = useTelegram();
+  const {tg, queryId, user} = useTelegram();
   const { allItems} = useSphereItems();
   const postbuy = async () =>{
     console.log("Покупаем");
@@ -17,7 +17,7 @@ const Basket = ({ data, price }) => {
     
     console.log(datapost);
     tg.sendData(JSON.stringify(datapost));
-    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: datapost, price: price, queryId:queryId, chat_id: chat_id}})
+    axios.post(`https://vps70590.xxvps.net:9050/web-data`, null, {params:{data: datapost, price: price, queryId:queryId, user: user}})
     // fetch('https://vps70590.xxvps.net:9050/web-data', {
     //         method: 'POST',
     //         headers: {
