@@ -1,0 +1,13 @@
+.addToBasket{
+     background: no-repeat url(icon1.png); 
+     width:23px;
+     height: 23px;
+     padding: 0 !important;
+     border-radius: 5px;
+     background-color: rgb(134, 250, 136);
+
+}
+
+.addToBasket:disabled{
+    background-color: rgb(250, 134, 134);
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useBasketItems } from "../Provider/BasketProvider/BasketHooks";
 import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
+import "./ListItem.css";
 
 const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
   const { addItem, removeItem } = useBasketItems();
@@ -40,7 +41,7 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
             Удалить
           </button>
         ) : (
-          <button
+          <button className="addToBasket"
             disabled={clicked}
             onClick={() => {
               // changeItem({
@@ -62,7 +63,7 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
               ]);
             }}
           >
-            Купить
+
           </button>
         )}
       </th>
