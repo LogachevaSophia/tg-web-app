@@ -105,22 +105,35 @@ export default function BasketProvider({ children }) {
   };
   const changeAll = (s = "a") => {
     if (s == true || s == false) {
-      let dop1 = allItems;
+      console.log('s = ', s);
+      console.log('allItems = ',allItems);
       let dop = [];
-      for (let i = 0; i < dop1.length; i++) {
-        if (i != 0) {
-          dop = dop1.slice(0, i);
-        }
-
-        dop = [
-          ...dop,
-          { ...dop1[i], clicked: s },
-          ...dop1.slice(i, allItems.length),
-        ];
-        dop1 = dop;
+      for (let i=0; i<allItems.length; i++){
+        dop.push({...allItems[i], clicked: s})
       }
-      setAllItems(dop1);
+      console.log('dop = ', dop);
+
+      setAllItems(dop);
+      
+
     }
+    // if (s == true || s == false) {
+    //   let dop1 = allItems;
+    //   let dop = [];
+    //   for (let i = 0; i < dop1.length; i++) {
+    //     if (i != 0) {
+    //       dop = dop1.slice(0, i);
+    //     }
+
+    //     dop = [
+    //       ...dop,
+    //       { ...dop1[i], clicked: s },
+    //       ...dop1.slice(i, allItems.length),
+    //     ];
+    //     dop1 = dop;
+    //   }
+    //   setAllItems(dop1);
+    // }
   };
 
   const changeBlock = (item, s = "a") => {
@@ -191,7 +204,7 @@ export default function BasketProvider({ children }) {
         let objSphere = categoryItems.filter((elem) => elem.title === c)[0];
         changeBlock(objSphere.data);
       } else {
-        if (item.title.indexOf("Купить все сети") != -1) {
+        if (item.title.indexOf("Купить все") != -1) {
           console.log('Удаляем все сети')
           /*удаляем все сети*/
           let dop1 = allItems;

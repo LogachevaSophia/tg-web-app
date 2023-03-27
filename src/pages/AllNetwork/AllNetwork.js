@@ -61,7 +61,7 @@ const AllNetwork = (props) => {
       </button>
      <ListForAll
             title={"Все сети"}
-            data={allNetworks}
+            data={allItems}
             key={0}
             id={0}
           />

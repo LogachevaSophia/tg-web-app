@@ -4,7 +4,7 @@ import { useSphereItems } from "../Provider/SphereProvider/SphereHooks";
 import "./ListItem.css";
 
 const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
-  const { addItem, removeItem } = useBasketItems();
+  const { addItem, removeItem,changeAll } = useBasketItems();
   const { allItems } = useSphereItems();
   // const [clickedstate, setClicked] = useState(false);
   const clicked = allItems.find(x=> x.id===id).clicked;
@@ -16,7 +16,7 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
       <th>{squareto}</th>
       <th>
         {basket ? (
-          <button
+          <button className='removeFromBasket'
             style={{ backgroundColor: "red" }}
             onClick={() => {
               changeItem({
@@ -30,6 +30,10 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
               if (title.indexOf("Купить всю сферу") != -1) {
                 changeSphere(title);
               }
+              if (title.indexOf("Купить все") != -1) {
+                console.log('изменяю всю на false');
+                changeAll(false);
+              }
               removeItem({
                 id: id,
                 title: title,
@@ -38,7 +42,7 @@ const ListItem = ({ id, title, squarefrom, squareto, basket }, ...props) => {
               });
             }}
           >
-            Удалить
+            
           </button>
         ) : (
           <button className="addToBasket"

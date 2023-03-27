@@ -20,17 +20,26 @@ const ListForAll = ({ title, data, id }, ...props) => {
     return items.sort((prev, next) => {
       var textA = prev.title.toUpperCase();
       var textB = next.title.toUpperCase();
-      return textA < textB ? -1 : textA > textB ? 1 : 0;
+      let v =  textA < textB ? -1 : textA > textB ? 1 : 0;
+      let b = v.filter((elem) => elem.title.indexOf('Купить всю сферу')===-1); 
+      let c = b.filter((elem) => elem.title.indexOf('Купить всю категорию')===-1);
+      let d = b.filter((elem) => elem.title.indexOf('Купить все')===-1);
+    return c;
     });
   };
 
   const squareFromSort = (items, value) => {
-    return items.filter((elem) => {
-      return elem.squarefrom >= value;
-    });
+    let b = items.filter((elem) => elem.title.indexOf('Купить всю сферу')===-1); 
+    let c = b.filter((elem) => elem.title.indexOf('Купить всю категорию')===-1);
+    let d = c.filter((elem) => elem.title.indexOf('Купить все')===-1);
+    return d.filter((elem) =>  elem.squarefrom >= value
+    );
   };
   const squareToSort = (items, value) => {
-    return items.filter((elem) => elem.squareto <= value);
+    let b = items.filter((elem) => elem.title.indexOf('Купить всю сферу')===-1); 
+    let c = b.filter((elem) => elem.title.indexOf('Купить всю категорию')===-1);
+    let d = c.filter((elem) => elem.title.indexOf('Купить все')===-1);
+    return d.filter((elem) => elem.squareto <= value);
   };
 
   const filterPost = (items, filter) => {
@@ -101,9 +110,15 @@ const ListForAll = ({ title, data, id }, ...props) => {
       return squareToSort(squareFromSort(items, filter[1]), filter[2]);
     }
     if (!filter[3]) {
-      return items.slice(0, 3);
+      let b = items.filter((elem) => elem.title.indexOf('Купить всю сферу')===-1); 
+    let c = b.filter((elem) => elem.title.indexOf('Купить всю категорию')===-1);
+    let d = c.filter((elem) => elem.title.indexOf('Купить все')===-1);
+      return d.slice(0, 3);
     }
-    return items;
+    let b = items.filter((elem) => elem.title.indexOf('Купить всю сферу')===-1); 
+    let c = b.filter((elem) => elem.title.indexOf('Купить всю категорию')===-1);
+    let d = c.filter((elem) => elem.title.indexOf('Купить все')===-1);
+    return d;
   };
 
   const isNumeric = (value) => {
@@ -127,6 +142,7 @@ const ListForAll = ({ title, data, id }, ...props) => {
         <button
           className="buysphere"
           onClick={() => {
+            console.log(data);
             let ind = data.findIndex((p) => p.title.indexOf("Купить все") !=-1)
             console.log("Пытаюсь добавить в корзину")
             console.log(data[ind]);
