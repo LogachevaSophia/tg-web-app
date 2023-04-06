@@ -126,6 +126,8 @@ const Block = ({ title, data, id }, ...props) => {
   if (data.length > 1) {
     return (
       <div className="block">
+        <br></br>
+        <br></br>
         <div className="title">
           {title}
           <p></p>
@@ -184,9 +186,12 @@ const Block = ({ title, data, id }, ...props) => {
           </div>
         </div>
         <List data={visiblaData} basket={false} />
+        
         <div className="all">
           {filterPost(data, [companyFilter, squareFrom, squareTo, true])
             .length > 3 ? (
+              <div>
+                <br></br>
             <button
               onClick={() => {
                 setAll(!all);
@@ -194,6 +199,7 @@ const Block = ({ title, data, id }, ...props) => {
             >
               {all ? "Свернуть" : "Раскрыть"}
             </button>
+            </div>
           ) : (
             ""
           )}

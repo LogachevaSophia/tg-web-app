@@ -13,7 +13,9 @@ const BasketPage = () => {
         Назад
       </button>
       <Basket data={basketItems} price={price}></Basket>
-      {price}
+      <br></br>
+      <div className="price"><b>Сумма покупки: <br></br>{price}</b></div>
+      
     </div>
   );
 };

@@ -80,7 +80,7 @@ th button:disabled{
 TABLE {
   /* width: 300px; Ширина таблицы */
   border-collapse: collapse; /* Убираем двойные линии между ячейками */
-  border: 2px solid rgba(127, 255, 212, 0.421);
+  border: 2px solid rgb(79, 227, 84);
   margin-top: 0 auto;
   color: black;
 }
