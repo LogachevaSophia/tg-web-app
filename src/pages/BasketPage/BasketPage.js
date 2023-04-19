@@ -9,9 +9,11 @@ const BasketPage = () => {
   const navigate = useNavigate();
   return (
     <div className="container">
+     <div class='back-fixed'>
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
+      </div>
       <Basket data={basketItems} price={price}></Basket>
       <br></br>
       <div className="price"><b>Сумма покупки: <br></br>{price}</b></div>

@@ -55,9 +55,14 @@ const Category = (props) => {
   const navigate = useNavigate();
   return (
     <div className="container">
+     <div class='back-fixed'>
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
+      <button className="back" onClick={() => navigate("/basket")}>
+        Корзина
+      </button>
+      </div>
       {categoryItems.map((elem) => {
         return (
           <Block
