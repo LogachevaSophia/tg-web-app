@@ -60,7 +60,7 @@ const Sphere = (props) => {
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
-      <button className="back" onClick={() => navigate("/basket")}>
+      <button className="back" style={{marginRight:'5%'}} onClick={() => navigate("/basket")}>
         Корзина
       </button>
       </div>

@@ -9,7 +9,7 @@ const ListForAll = ({ title, data, id }, ...props) => {
   const [companyFilter, setcompanyFilter] = useState(false);
   const [squareFrom, setsquareFrom] = useState("");
   const [squareTo, setsquareTo] = useState("");
-  const [all, setAll] = useState(false);
+  const [all, setAll] = useState(true);
 
   const { changeBlock, changeAll, calcPrice } = useBasketItems();
   const { allItems } = useSphereItems();
