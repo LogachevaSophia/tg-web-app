@@ -56,11 +56,11 @@ const Sphere = (props) => {
   const navigate = useNavigate();
   return (
     <div className="container">
-     <div class='back-fixed'>
+     <div class='back-fixed' >
       <button className="back" onClick={() => navigate(-1)}>
         Назад
       </button>
-      <button className="back" style={{marginRight:'5%'}} onClick={() => navigate("/basket")}>
+      <button className="back" onClick={() => navigate("/basket")}>
         Корзина
       </button>
       </div>
