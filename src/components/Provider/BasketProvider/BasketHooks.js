@@ -10,9 +10,9 @@ export default function BasketProvider({ children }) {
   const { sphereItems, allItems, setAllItems, categoryItems, allNetworks } =
     useSphereItems();
 
-  const pr1 = 75;
-  const pr2 = 100;
-  const pr3 = 150;
+  const pr1 = 199;
+  const pr2 = 299;
+  const pr3 = 399;
 
   const calcPrice = (basketItems) => {
     let dop = 0;
