@@ -10,6 +10,10 @@ export default function BasketProvider({ children }) {
   const { sphereItems, allItems, setAllItems, categoryItems, allNetworks } =
     useSphereItems();
 
+  const pr1 = 75;
+  const pr2 = 100;
+  const pr3 = 150;
+
   const calcPrice = (basketItems) => {
     let dop = 0;
 
@@ -28,14 +32,14 @@ export default function BasketProvider({ children }) {
             len - "Купить всю сферу ".length - 2
           );
           ind = sphereItems.findIndex((p) => p.title.indexOf(c) != -1);
-          dop += (sphereItems[ind].data.length - 1) * 100;
+          dop += (sphereItems[ind].data.length - 1) * pr2;
         } else {
           c = basketItems[i].title.substr(
             "Купить всю категорию ".length + 1,
             len - "Купить всю категорию ".length - 2
           );
           ind = categoryItems.findIndex((p) => p.title.indexOf(c) != -1);
-          dop += (categoryItems[ind].data.length - 1) * 100;
+          dop += (categoryItems[ind].data.length - 1) * pr2;
         }
 
         // let ind = sphereItems.indexOf();
@@ -43,14 +47,14 @@ export default function BasketProvider({ children }) {
       if (basketItems[i].title.indexOf("Купить все") != -1) {
         count += 1;
         console.log("allNetworks.length =", allNetworks.length);
-        dop += (allNetworks.length - 1) * 75;
+        dop += (allNetworks.length - 1) * pr1;
       }
     }
 
     if (basketItems.length - count >= 50) {
-      dop += (basketItems.length - count) * 100;
+      dop += (basketItems.length - count) * pr2;
     } else {
-      dop += (basketItems.length - count) * 150;
+      dop += (basketItems.length - count) * pr3;
     }
 
     setPrice(dop);
