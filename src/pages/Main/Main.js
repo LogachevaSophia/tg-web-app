@@ -59,7 +59,7 @@ const Main = () => {
         <button>Корзина</button>
       </div>
       <div className="help">
-        <button><a href='https://t.me/ArendaPodderzka'>Связаться с нами</a></button>
+        <button><a href='https://t.me/bazapodderzka'>Связаться с нами</a></button>
       </div>
     </div>
   );
